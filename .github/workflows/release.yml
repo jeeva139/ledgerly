@@ -1,0 +1,80 @@
+name: Release
+
+# Builds the Windows installer and portable executable and publishes them as a GitHub Release.
+#   - Push a tag like  v1.0.1  (it must match "version" in package.json) to publish a release.
+#   - Or run it by hand from the Actions tab: the files are attached to the run as a downloadable artifact.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write # needed to create the release and upload its files
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tag must match package.json version
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          if ($env:GITHUB_REF_NAME -ne "v$version") {
+            Write-Error "Tag $env:GITHUB_REF_NAME does not match package.json version v$version"
+            exit 1
+          }
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify (type-check, tests, offline audit)
+        run: |
+          npm run typecheck
+          npm test
+          node scripts/audit-network.mjs
+
+      # Optional code signing: add repository secrets CSC_LINK (base64 of your .pfx) and CSC_KEY_PASSWORD.
+      # Without them the build is unsigned and Windows may show a SmartScreen / Smart App Control warning.
+      - name: Build installer and portable exe
+        run: npm run package
+        env:
+          CSC_LINK: ${{ secrets.CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+
+      - name: Checksums
+        shell: pwsh
+        run: |
+          Get-FileHash release\Ledgerly-Setup.exe, release\Ledgerly.exe -Algorithm SHA256 |
+            ForEach-Object { "$($_.Hash.ToLower())  $(Split-Path $_.Path -Leaf)" } |
+            Set-Content release\SHA256SUMS.txt -Encoding ascii
+          Get-Content release\SHA256SUMS.txt
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/Ledgerly-Setup.exe
+            release/Ledgerly.exe
+            release/SHA256SUMS.txt
+          generate_release_notes: true
+
+      - name: Keep the build as a downloadable artifact (manual runs)
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledgerly-windows
+          path: |
+            release/Ledgerly-Setup.exe
+            release/Ledgerly.exe
+            release/SHA256SUMS.txt
+          retention-days: 14

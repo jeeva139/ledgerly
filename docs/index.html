@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ledgerly — Private Personal Finance</title>
+    <meta name="description" content="Ledgerly is an offline Windows app for personal finance. Your financial data stays on your computer." />
+    <style>
+      :root {
+        --bg: #f3f4f7; --surface: #ffffff; --text: #1a2033; --muted: #566078; --border: #e2e5ec;
+        --accent: #6558d3; --accent-hover: #5649c0; --navy: #131a33; --on-accent: #ffffff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #0e1325; --surface: #161d36; --text: #e9ecf6; --muted: #a2abc6; --border: #2a3459; --accent: #8a7ff0; --accent-hover: #9b92f4; --on-accent: #0e1325; }
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+      a { color: var(--accent); }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+      header { background: var(--navy); color: #fff; padding: 56px 0 64px; }
+      .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+      .brand span { font-size: 22px; font-weight: 650; letter-spacing: -0.02em; }
+      h1 { margin: 0 0 12px; font-size: clamp(28px, 5vw, 42px); line-height: 1.15; letter-spacing: -0.02em; }
+      header p { margin: 0 0 28px; max-width: 56ch; color: #d6dbf0; font-size: 18px; }
+      .btn { display: inline-block; padding: 13px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; background: var(--accent); color: var(--on-accent); }
+      .btn:hover { background: var(--accent-hover); }
+      .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.35); margin-left: 8px; }
+      .btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+      main { padding: 40px 0 56px; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+      .card h2 { margin: 0 0 6px; font-size: 17px; }
+      .card p { margin: 0; color: var(--muted); font-size: 15px; }
+      h2.section { margin: 40px 0 12px; font-size: 22px; }
+      ol, ul { padding-left: 22px; margin: 0; }
+      li { margin: 6px 0; }
+      .note { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 18px; color: var(--muted); }
+      footer { padding: 24px 0 48px; color: var(--muted); font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="brand">
+          <svg width="44" height="44" viewBox="0 0 256 256" role="img" aria-label="Ledgerly logo">
+            <rect x="8" y="8" width="240" height="240" rx="58" fill="#6558D3" />
+            <path d="M78 62a12 12 0 0 1 24 0v94h84a12 12 0 0 1 0 24H90a12 12 0 0 1-12-12V62z" fill="#fff" />
+            <rect x="122" y="124" width="16" height="20" rx="4" fill="#D6D1F8" />
+            <rect x="148" y="104" width="16" height="40" rx="4" fill="#D6D1F8" />
+            <rect x="174" y="80" width="16" height="64" rx="4" fill="#fff" />
+          </svg>
+          <span>Ledgerly</span>
+        </div>
+        <h1>Private personal finance.<br />Your data stays on your computer.</h1>
+        <p>An offline Windows app for tracking spending, importing statements and understanding your money — with no cloud, no account and no internet connection.</p>
+        <a class="btn" href="https://github.com/jeeva139/ledgerly/releases/latest">Download for Windows</a>
+        <a class="btn ghost" href="https://github.com/jeeva139/ledgerly">View source on GitHub</a>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="grid">
+        <div class="card"><h2>Completely offline</h2><p>Works with no network at all. Ledgerly never connects to the internet and sends no telemetry.</p></div>
+        <div class="card"><h2>Import your statements</h2><p>QIF, CSV and Excel files, with a preview, duplicate detection and one-click undo.</p></div>
+        <div class="card"><h2>Category Finder</h2><p>Type a few keywords and categorise hundreds of transactions at once, even inside long UPI narrations.</p></div>
+        <div class="card"><h2>Budgets, goals &amp; reports</h2><p>Spending by category, recurring payments, subscriptions, net worth and charts from your real data.</p></div>
+        <div class="card"><h2>Backup &amp; restore</h2><p>One-file backups of your database and documents, with a safety copy before any restore.</p></div>
+        <div class="card"><h2>You stay in control</h2><p>Nothing changes without a preview and your confirmation. Erase everything with one typed word.</p></div>
+      </div>
+
+      <h2 class="section">Install in three steps</h2>
+      <ol>
+        <li>Open the <a href="https://github.com/jeeva139/ledgerly/releases/latest">latest release</a> and download <strong>Ledgerly-Setup.exe</strong> (or the portable <strong>Ledgerly.exe</strong>).</li>
+        <li>Run it and launch Ledgerly from the Start menu.</li>
+        <li>Open <strong>Import</strong> to add a bank statement, or <strong>Add Entry</strong> to type in your first transaction.</li>
+      </ol>
+
+      <h2 class="section">Good to know</h2>
+      <p class="note">Your data is stored in <code>%APPDATA%\Ledgerly</code> on your own PC. Updating or uninstalling does not remove it, so create a backup from
+        <em>Settings → Backup &amp; restore</em> regularly. Current builds are not code-signed, so Windows may show a security warning —
+        see the <a href="https://github.com/jeeva139/ledgerly/blob/main/docs/DEPLOYMENT.md">deployment guide</a>.</p>
+
+      <h2 class="section">Documentation</h2>
+      <ul>
+        <li><a href="https://github.com/jeeva139/ledgerly/blob/main/docs/USER_GUIDE.md">User guide</a> — install, import, Category Finder, backup and restore</li>
+        <li><a href="https://github.com/jeeva139/ledgerly/blob/main/docs/DEPLOYMENT.md">Deployment guide</a> — build, sign and publish releases</li>
+        <li><a href="https://github.com/jeeva139/ledgerly">Source code</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      <div class="wrap">Ledgerly — Private Personal Finance. This page is static and loads nothing from other sites.</div>
+    </footer>
+  </body>
+</html>

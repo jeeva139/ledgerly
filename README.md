@@ -3,7 +3,27 @@
 An offline Windows desktop application for personal finance. Electron + React + TypeScript + SQLite.
 Your financial data never leaves your computer: no cloud, no accounts, no telemetry, no network access.
 
-**User documentation:** [docs/USER_GUIDE.md](docs/USER_GUIDE.md)
+**Documentation:** [User guide](docs/USER_GUIDE.md) · [Deploying & hosting on GitHub](docs/DEPLOYMENT.md)
+
+## Deploy and host on GitHub (summary)
+
+Ledgerly is a desktop app, so "deploying" means building the Windows installer and publishing it for download.
+Full details, code signing and troubleshooting are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+```
+npm install && npm run package          # build release/Ledgerly-Setup.exe and release/Ledgerly.exe locally
+
+npm version patch                       # bump version + create tag (e.g. v1.0.1)
+git push origin main --follow-tags      # GitHub Actions builds and publishes a Release with the installers
+```
+
+| GitHub feature | What it does here |
+|---|---|
+| **Releases** | Hosts the downloads: `https://github.com/jeeva139/ledgerly/releases/latest` |
+| **Actions** | `ci.yml` type-checks, tests and audits every push; `release.yml` builds and publishes on a version tag |
+| **Pages** (optional) | *Settings → Pages → `main` / `/docs`* serves the landing page `docs/index.html` |
+
+Do not commit the `.exe` files — attach them to a Release.
 
 ## Deliverables
 
