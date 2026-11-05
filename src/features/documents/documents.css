@@ -1,0 +1,114 @@
+.doc-drop {
+  position: relative;
+  border: 2px dashed transparent;
+  border-radius: var(--radius-lg);
+  transition: border-color 0.12s, background 0.12s;
+}
+.doc-drop.dragging {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.doc-drop .drop-hint {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  place-items: center;
+  font-weight: 600;
+  color: var(--accent-text);
+  background: color-mix(in srgb, var(--accent-soft) 88%, transparent);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+.doc-drop.dragging .drop-hint {
+  display: grid;
+}
+.doc-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.doc-filters .search {
+  flex: 1 1 220px;
+  min-width: 160px;
+  max-width: 360px;
+}
+.doc-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.doc-name .file-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+.doc-name .file-icon.pdf {
+  background: var(--danger-soft);
+  color: var(--danger-text);
+}
+.doc-name .file-icon.image {
+  background: var(--info-soft);
+  color: var(--info-text);
+}
+.doc-name .file-icon.sheet {
+  background: var(--positive-soft);
+  color: var(--positive-text);
+}
+.doc-name .names {
+  min-width: 0;
+}
+.doc-name .fname {
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 340px;
+}
+.doc-name .note {
+  font-size: 12px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 340px;
+}
+.extract-grid {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 6px 12px;
+  font-size: 14px;
+}
+.extract-grid dt {
+  color: var(--text-muted);
+}
+.extract-grid dd {
+  margin: 0;
+  font-weight: 550;
+}
+.extract-grid dd.empty-value {
+  color: var(--text-faint);
+  font-weight: 400;
+}
+.rejected-list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+@media (max-width: 900px) {
+  .doc-name .fname,
+  .doc-name .note {
+    max-width: 180px;
+  }
+  .hide-narrow {
+    display: none;
+  }
+}

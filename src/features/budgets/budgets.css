@@ -1,0 +1,62 @@
+/* Budgets */
+.month-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 3px;
+}
+.month-nav .month-label {
+  min-width: 150px;
+  text-align: center;
+  font-weight: 600;
+}
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 16px;
+}
+.budget-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.budget-card.inactive {
+  opacity: 0.78;
+}
+.budget-card .budget-title {
+  font-weight: 650;
+  font-size: 15px;
+  min-width: 0;
+}
+.budget-figures {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.budget-figures .spent {
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.budget-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.health-states {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.health-states .pill {
+  font-size: 13px;
+  padding: 4px 11px;
+}

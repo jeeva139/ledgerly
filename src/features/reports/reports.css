@@ -1,0 +1,76 @@
+.report-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.report-head p {
+  color: var(--text-muted);
+  max-width: 72ch;
+  margin-top: 2px;
+}
+.report-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.report-summary {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.report-summary strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.report-table .table th,
+.report-table .table td {
+  padding: 9px 12px;
+}
+.report-table tfoot th {
+  position: static;
+  background: var(--surface-2);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13.5px;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+}
+.report-note {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.dim {
+  color: var(--text-faint);
+}
+
+.report-refresh {
+  transition: opacity 0.15s;
+}
+.report-refresh.stale {
+  opacity: 0.6;
+}
+/* Row header cell (first column) in report tables: reads like a normal cell but stays a real <th scope="row">. */
+.report-table .table tbody th[scope='row'] {
+  position: static;
+  background: transparent;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: 550;
+  color: var(--text);
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.report-table .table tbody tr:last-child th[scope='row'] {
+  border-bottom: 0;
+}
+.report-table .table tbody tr:hover th[scope='row'] {
+  background: var(--surface-2);
+}

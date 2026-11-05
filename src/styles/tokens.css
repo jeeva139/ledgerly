@@ -1,0 +1,116 @@
+/* Ledgerly design tokens. Light is the default; dark is applied with [data-theme="dark"]. */
+:root {
+  --font: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Mono', 'Consolas', 'Courier New', monospace;
+
+  --bg: #f3f4f7;
+  --surface: #ffffff;
+  --surface-2: #f8f9fb;
+  --surface-3: #eef0f5;
+  --border: #e2e5ec;
+  --border-strong: #cfd4de;
+  --text: #1a2033;
+  --text-muted: #566078;
+  --text-faint: #7a8399;
+
+  --accent: #6558d3;
+  --accent-hover: #5649c0;
+  --accent-active: #4a3eae;
+  --accent-soft: #eeecfb;
+  --accent-text: #5144bf;
+  --on-accent: #ffffff;
+
+  --positive: #1f8f5b;
+  --positive-soft: #e5f5ed;
+  --positive-text: #17724a;
+  --spending: #e07a2d;
+  --spending-soft: #fdf0e4;
+  --spending-text: #a8530f;
+  --info: #2f6fbf;
+  --info-soft: #e7f0fa;
+  --info-text: #255a9c;
+  --danger: #c23b3b;
+  --danger-soft: #fbeaea;
+  --danger-text: #a42d2d;
+  --warning-soft: #fdf4dc;
+  --warning-text: #8a5a00;
+
+  --navy: #131a33;
+  --navy-2: #1c2547;
+  --navy-3: #2a3560;
+  --navy-text: #d6dbf0;
+  --navy-muted: #8f99bd;
+
+  --shadow-sm: 0 1px 2px rgba(20, 27, 52, 0.06);
+  --shadow-md: 0 4px 14px rgba(20, 27, 52, 0.08);
+  --shadow-lg: 0 18px 48px rgba(20, 27, 52, 0.22);
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
+  --focus: 0 0 0 3px rgba(101, 88, 211, 0.35);
+  --chart-1: #6558d3;
+  --chart-2: #e07a2d;
+  --chart-3: #2f6fbf;
+  --chart-4: #1f8f5b;
+  --chart-5: #b04f9a;
+  --chart-6: #c9a227;
+  --chart-7: #3a9aa8;
+  --chart-8: #8a8fa3;
+  --grid: #e8ebf1;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1325;
+  --surface: #161d36;
+  --surface-2: #1b2342;
+  --surface-3: #222b4d;
+  --border: #2a3459;
+  --border-strong: #3a4670;
+  --text: #e9ecf6;
+  --text-muted: #a2abc6;
+  --text-faint: #7f89a8;
+
+  --accent: #8a7ff0;
+  --accent-hover: #9b92f4;
+  --accent-active: #7a6fe6;
+  --accent-soft: #272454;
+  --accent-text: #b0a8f7;
+  --on-accent: #0e1325;
+
+  --positive: #3fbf86;
+  --positive-soft: #14352a;
+  --positive-text: #6fd6a8;
+  --spending: #f09a52;
+  --spending-soft: #3a2616;
+  --spending-text: #f5b27c;
+  --info: #5b9be0;
+  --info-soft: #172c47;
+  --info-text: #8fbcee;
+  --danger: #ef6b6b;
+  --danger-soft: #3a1c22;
+  --danger-text: #f59a9a;
+  --warning-soft: #3a2f12;
+  --warning-text: #e8c060;
+
+  --navy: #0a0f20;
+  --navy-2: #141c3a;
+  --navy-3: #222c54;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.6);
+  --focus: 0 0 0 3px rgba(138, 127, 240, 0.45);
+  --chart-1: #8a7ff0;
+  --chart-2: #f09a52;
+  --chart-3: #5b9be0;
+  --chart-4: #3fbf86;
+  --chart-5: #d487c0;
+  --chart-6: #dcbd4a;
+  --chart-7: #5cbac7;
+  --chart-8: #9aa1b8;
+  --grid: #263055;
+  color-scheme: dark;
+}

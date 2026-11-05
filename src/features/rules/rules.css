@@ -1,0 +1,52 @@
+/* Rules */
+.rule-order {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 8px;
+  background: var(--surface-3);
+  color: var(--text-muted);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.rule-when {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.rule-when .kw {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.rule-row-disabled td:not(.actions):not(.enabled-col) {
+  opacity: 0.55;
+}
+.rules-order-note {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.recat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.recat-options .hint {
+  margin-left: 24px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.recat-sample-text {
+  max-width: 360px;
+  overflow-wrap: anywhere;
+}
+.rules-legend {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-muted);
+}

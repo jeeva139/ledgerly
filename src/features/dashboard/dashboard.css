@@ -1,0 +1,118 @@
+/* Dashboard-specific styling (tokens come from src/styles/tokens.css). */
+.dash-refresh {
+  transition: opacity 0.15s;
+}
+.dash-refresh.stale {
+  opacity: 0.6;
+}
+.card.dark .stat .value.not-set {
+  color: #c9cfe8;
+}
+.card.dark .stat .hint {
+  color: var(--navy-muted);
+}
+.btn.on-dark {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: transparent;
+  color: #fff;
+  margin-top: 4px;
+}
+.btn.on-dark:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dash-note {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.mini-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.mini-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.mini-list > li:last-child {
+  border-bottom: 0;
+}
+.mini-list .primary {
+  font-weight: 550;
+  min-width: 0;
+}
+.mini-list .secondary {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  min-width: 0;
+}
+.mini-list .amount {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.insight-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.insight-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+.insight-list li.warning svg {
+  color: var(--warning-text);
+}
+.insight-list li.info svg {
+  color: var(--accent-text);
+}
+.insight-list svg {
+  flex: none;
+  margin-top: 2px;
+}
+.insight-list .insight-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.big-count {
+  font-size: 32px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.due-soon {
+  color: var(--spending-text);
+}
+.dash-footer-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.recent-table td {
+  padding: 8px 10px;
+}
+.recent-table th {
+  padding: 8px 10px;
+}
+@media (max-width: 760px) {
+  .recent-table .hide-narrow {
+    display: none;
+  }
+}

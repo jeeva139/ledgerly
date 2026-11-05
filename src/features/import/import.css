@@ -1,0 +1,241 @@
+/* Import page — uses the global design tokens. */
+.imp-start {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 980px) {
+  .imp-start {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.imp-format {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.imp-format .imp-format-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.imp-format h3 {
+  font-size: 16px;
+}
+.imp-format p {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  flex: 1;
+}
+.imp-drop {
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--surface);
+  transition: border-color 0.12s, background 0.12s;
+}
+.imp-drop.over {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.imp-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  counter-reset: step;
+}
+.imp-steps li {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+.imp-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 650;
+  display: grid;
+  place-items: center;
+  font-size: 12.5px;
+}
+.imp-steps strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.imp-file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.imp-file .imp-file-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.imp-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+.imp-summary .card {
+  padding: 14px 16px;
+}
+.imp-summary .stat .value {
+  font-size: 22px;
+}
+.imp-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px 20px;
+  align-items: start;
+}
+.imp-options .full {
+  grid-column: 1 / -1;
+}
+.imp-new-account {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 8px;
+  margin-top: 8px;
+}
+.imp-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.imp-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px 16px;
+}
+.imp-map .field.uncertain .select {
+  border-color: var(--spending);
+  box-shadow: 0 0 0 2px var(--spending-soft);
+}
+.imp-map .field .error {
+  color: var(--spending-text);
+}
+.imp-sample {
+  max-height: 230px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.imp-sample .table td,
+.imp-sample .table th {
+  padding: 6px 10px;
+  font-size: 13px;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.imp-sample .table th.mapped {
+  color: var(--accent-text);
+  background: var(--accent-soft);
+}
+
+.imp-preview-wrap {
+  position: relative;
+}
+.imp-preview-wrap.busy .table-wrap {
+  opacity: 0.55;
+  transition: opacity 0.12s;
+}
+.imp-preview-table td {
+  vertical-align: top;
+}
+.imp-preview-table .narr {
+  max-width: 520px;
+  word-break: break-word;
+}
+.imp-preview-table .narr .memo {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.imp-preview-table tr.is-invalid td {
+  background: var(--danger-soft);
+}
+.imp-preview-table tr.is-duplicate td {
+  color: var(--text-muted);
+}
+.imp-footer {
+  position: sticky;
+  bottom: -24px;
+  margin: 0 -24px -24px;
+  padding: 14px 24px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+@media (max-width: 900px) {
+  .imp-footer {
+    bottom: -16px;
+    margin: 0 -16px -16px;
+    padding: 12px 16px;
+  }
+}
+.imp-progress {
+  max-width: 560px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: stretch;
+  text-align: center;
+}
+.imp-progress .count {
+  font-size: 22px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.imp-report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+.imp-report-grid .stat .value {
+  font-size: 28px;
+}
+.imp-hist .table td {
+  white-space: nowrap;
+}
+.imp-hist .table td.file {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 280px;
+}

@@ -1,0 +1,106 @@
+/* Recurring & Subscriptions */
+.rec-table {
+  min-width: 640px;
+}
+.rec-table td,
+.rec-table th {
+  vertical-align: middle;
+}
+.rec-name {
+  font-weight: 600;
+  max-width: 260px;
+}
+.rec-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.rec-summary {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 13.5px;
+}
+.rec-summary strong {
+  font-variant-numeric: tabular-nums;
+}
+.rec-disclosure {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0;
+}
+.rec-disclosure summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rec-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+.rec-disclosure summary::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(-45deg);
+  transition: transform 0.12s;
+  flex: none;
+}
+.rec-disclosure[open] summary::before {
+  transform: rotate(45deg);
+}
+.rec-disclosure .rec-disclosure-body {
+  padding: 0 16px 16px 32px;
+  color: var(--text-muted);
+}
+.rec-disclosure ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+.rec-disclosure li {
+  margin: 4px 0;
+}
+@media (max-width: 1200px) {
+  .rec-table .hide-md {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .rec-table .hide-sm {
+    display: none;
+  }
+  .rec-name {
+    max-width: 160px;
+  }
+}
+
+/* ---- keep Keep / Ignore / Undo reachable: one line, tighter cells, pinned to the right edge ---- */
+.rec-table th,
+.rec-table td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.rec-actions {
+  flex-wrap: nowrap;
+}
+.rec-table th:last-child,
+.rec-table td:last-child {
+  position: sticky;
+  right: 0;
+  background: var(--surface);
+  box-shadow: -10px 0 10px -10px rgba(20, 27, 52, 0.18);
+}
+.rec-table thead th:last-child {
+  background: var(--surface-2);
+  z-index: 2;
+}

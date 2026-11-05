@@ -1,0 +1,37 @@
+appId: app.ledgerly.desktop
+productName: Ledgerly
+copyright: Copyright © Ledgerly
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+  - "!**/*.map"
+asar: true
+asarUnpack:
+  - dist-electron/import-worker.js
+compression: normal
+electronLanguages:
+  - en-US
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+  artifactName: Ledgerly.${ext}
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Ledgerly
+  artifactName: Ledgerly-Setup.${ext}
+  # The user's financial data lives in %APPDATA%\Ledgerly and must survive uninstalling.
+  deleteAppDataOnUninstall: false
+portable:
+  artifactName: Ledgerly.${ext}
